@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: talentai-backend
+    environment:
+      - MONGODB_URI=${MONGODB_URI:-}
+      - MONGODB_DB=${MONGODB_DB:-talentai}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - CORS_ORIGINS=http://localhost:8080,http://localhost:5173
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./results:/app/results
+      - ./artifacts:/app/artifacts
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: talentai-frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"

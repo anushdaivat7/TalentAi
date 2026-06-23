@@ -1,0 +1,22 @@
+# --- Core ranking engine (required to reproduce submission.csv) -------------
+numpy>=1.26,<3.0
+
+# --- Schema validation (Phase 1) --------------------------------------------
+jsonschema>=4.21
+
+# --- AI engine: embeddings + vector search (offline pre-computation) --------
+# Pinned-ish for reproducibility; CPU wheels are sufficient.
+sentence-transformers>=2.6,<4.0
+faiss-cpu>=1.8.0
+
+# --- Data ingestion: MongoDB (optional, pipeline degrades gracefully) -------
+pymongo>=4.6
+
+# --- Explanations: Gemini (optional, dashboard/offline only) ----------------
+google-generativeai>=0.5
+
+# --- Tests (dev) ------------------------------------------------------------
+pytest>=8.0
+
+# NOTE: The ranking step (rank.py) only strictly needs numpy. Everything else
+# powers offline pre-computation, ingestion, the API and the dashboard.

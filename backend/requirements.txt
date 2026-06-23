@@ -1,0 +1,10 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+pymongo>=4.6
+numpy>=1.26,<3.0
+google-generativeai>=0.5
+reportlab>=4.0
+# The backend imports the top-level `talentai` package for on-the-fly ranking
+# and submission generation. Install the root requirements.txt too if you want
+# the full AI engine (sentence-transformers, faiss-cpu).

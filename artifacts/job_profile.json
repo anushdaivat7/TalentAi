@@ -1,0 +1,64 @@
+{
+  "role_title": "Senior AI Engineer - Founding Team",
+  "company": "Redrob AI",
+  "company_stage": "Series A (AI-native talent intelligence)",
+  "locations": [
+    "Pune",
+    "Noida",
+    "Hyderabad",
+    "Mumbai",
+    "Delhi NCR"
+  ],
+  "employment_type": "Full-time (Hybrid)",
+  "experience": {
+    "min_years": 5.0,
+    "max_years": 9.0,
+    "ideal_low": 6.0,
+    "ideal_high": 8.0,
+    "hard_floor": 3.0,
+    "hard_ceiling": 15.0
+  },
+  "required_skills": [
+    "embeddings",
+    "retrieval",
+    "vector_db",
+    "ranking",
+    "ml_evaluation",
+    "python",
+    "nlp"
+  ],
+  "preferred_skills": [
+    "llm_finetune",
+    "llm",
+    "ml_core",
+    "distributed",
+    "hrtech"
+  ],
+  "education_requirements": "No hard degree requirement; CS/ML background helps but plain-language candidates with real production ML experience are explicitly welcome.",
+  "domain_requirements": [
+    "embeddings-based retrieval in production",
+    "vector databases / hybrid search",
+    "ranking / search / recommendation systems shipped to real users",
+    "evaluation frameworks (NDCG, MRR, MAP, A/B testing)",
+    "product companies over pure services"
+  ],
+  "soft_skills": [
+    "scrappy product-engineering attitude",
+    "ships fast, iterates from real users",
+    "strong written communication (async-first)",
+    "disagree openly, decide quickly",
+    "3+ year commitment (not a title-chaser)"
+  ],
+  "disqualifiers": [
+    "pure research / no production deployment",
+    "AI experience only recent LangChain-on-OpenAI (<12 months)",
+    "senior who hasn't written production code in 18 months",
+    "title-chasers (company switch every ~1.5 years)",
+    "framework enthusiasts over systems thinkers",
+    "consulting-firm-only careers",
+    "computer-vision/speech/robotics without NLP/IR",
+    "closed-source-only for 5+ years with no external validation"
+  ],
+  "summary_text": "Senior AI Engineer for a Series A AI-native talent intelligence platform. Owns the intelligence layer: ranking, retrieval and matching systems. Production experience with embeddings-based retrieval (sentence-transformers, OpenAI embeddings, BGE, E5) deployed to real users, handling embedding drift, index refresh and retrieval-quality regression. Production experience with vector databases or hybrid search (Pinecone, Weaviate, Qdrant, Milvus, OpenSearch, Elasticsearch, FAISS). Strong Python and code quality. Hands-on designing evaluation frameworks for ranking systems: NDCG, MRR, MAP, offline-to-online correlation, A/B test interpretation. Has shipped at least one end-to-end ranking, search or recommendation system to real users at scale at a product company (not pure services). Six to eight years total experience, four to five in applied ML/AI at product companies. Scrappy product-engineering attitude, ships fast, writes well, based in or willing to relocate to Noida or Pune. Not a title-chaser, not research-only, not consulting-only, not a framework enthusiast, not computer-vision/speech/robotics without NLP.",
+  "raw_text_chars": 9564
+}
