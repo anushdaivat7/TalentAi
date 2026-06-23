@@ -36,7 +36,7 @@ candidates.jsonl (100K)  ──►  feature extraction + traps + semantic match
 
 | Link | URL |
 |------|-----|
-| **GitHub Repo** | [github.com/YOUR_USERNAME/talentai](https://github.com/YOUR_USERNAME/talentai) |
+| **GitHub Repo** | [github.com/anushdaivat7/TalentAi](https://github.com/anushdaivat7/TalentAi) |
 | **Sandbox (ranker demo)** | [huggingface.co/spaces/YOUR_USERNAME/talentai-ranker](https://huggingface.co/spaces/YOUR_USERNAME/talentai-ranker) |
 | **Frontend (local)** | [http://localhost:5173](http://localhost:5173) |
 | **Backend API (local)** | [http://127.0.0.1:8000](http://127.0.0.1:8000) |
@@ -59,10 +59,99 @@ candidates.jsonl (100K)  ──►  feature extraction + traps + semantic match
 
 ---
 
+## 📦 Dataset setup (for judges & reviewers)
+
+This repo contains **code only** — not the official 100K candidate pool (too large for GitHub).  
+Judges and reviewers already receive the **Redrob challenge bundle** separately. You only need to point the ranker at `candidates.jsonl`.
+
+### Step 1 — Get the official data
+
+Use the challenge bundle you received from Redrob. You need at least:
+
+```
+candidates.jsonl          # full pool (~100,000 profiles) — required for final submission
+candidate_schema.json     # optional, for validation
+validate_submission.py    # optional, used by submission-generator/
+```
+
+### Step 2 — Place the file (pick one option)
+
+**Option A — project root (simplest for judges)**
+
+Copy `candidates.jsonl` next to `rank.py`:
+
+```
+TalentAi/
+├── rank.py
+├── candidates.jsonl    ← put file here
+├── talentai/
+└── ...
+```
+
+**Option B — keep bundle folder locally (Windows example)**
+
+```
+TalentAi/
+├── [PUB] India_runs_data_and_ai_challenge/
+│   └── India_runs_data_and_ai_challenge/
+│       └── candidates.jsonl
+└── rank.py
+```
+
+The ranker auto-finds this path if the folder exists locally.
+
+**Option C — custom path (any OS)**
+
+```powershell
+# Windows PowerShell
+$env:TALENTAI_CANDIDATES = "C:\path\to\candidates.jsonl"
+```
+
+```bash
+# macOS / Linux
+export TALENTAI_CANDIDATES=/path/to/candidates.jsonl
+```
+
+No code changes needed — only the data path.
+
+### Step 3 — Reproduce submission (Stage 3 command)
+
+From project root, with venv activated and `pip install -r requirements.txt`:
+
+```powershell
+python rank.py --candidates ./candidates.jsonl --out ./submission.csv --no-embeddings
+```
+
+Or with the local bundle path:
+
+```powershell
+python rank.py --candidates ".\[PUB] India_runs_data_and_ai_challenge\India_runs_data_and_ai_challenge\candidates.jsonl" --out .\submission.csv --no-embeddings
+```
+
+Expected: finishes in a few minutes on CPU, writes `submission.csv` (100 rows).
+
+### Step 4 — Validate output
+
+```powershell
+python submission-generator\generate.py --team team_Talentai
+```
+
+### Step 5 — Load dashboard (optional)
+
+After ranking, start backend + frontend (see [Quick Start](#-quick-start-all-commands)).  
+If the backend was already running, refresh data with:
+
+```
+POST http://127.0.0.1:8000/api/reload
+```
+
+> **Note:** The dataset is **not** committed to GitHub on purpose. Cloning this repo always requires placing `candidates.jsonl` locally (one step). Organizers provide the same file for Stage-3 evaluation.
+
+---
+
 ## ⚡ Quick Start (all commands)
 
-**Prerequisites:** Python 3.10+, Node.js 18+, challenge bundle at  
-`[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/candidates.jsonl`
+**Prerequisites:** Python 3.10+, Node.js 18+, and `candidates.jsonl` from the official challenge bundle (see [Dataset setup](#-dataset-setup-for-judges--reviewers) above).
 
 ### 1️⃣ One-time setup
 
