@@ -23,23 +23,6 @@ Environment variables (optional) read by compose: `MONGODB_URI`, `MONGODB_DB`,
 
 ---
 
-## 2. MongoDB Atlas
-
-1. Create a free M0 cluster at <https://cloud.mongodb.com>.
-2. Add a database user and allow your IP (or `0.0.0.0/0` for testing).
-3. Copy the connection string and export it:
-   ```bash
-   export MONGODB_URI="mongodb+srv://user:pass@cluster.mongodb.net/?retryWrites=true&w=majority"
-   ```
-4. Ingest:
-   ```bash
-   python data-ingestion/ingest.py
-   ```
-   The pipeline validates each record against `candidate_schema.json` and upserts
-   into `talentai.candidates` (indexed on `candidate_id`). Without `MONGODB_URI`
-   it validates + writes a local snapshot instead, so nothing breaks.
-
----
 
 ## 3. Gemini (explanations — optional, never used during ranking)
 
@@ -55,12 +38,6 @@ explanations. The Stage-3 ranking step always runs with the network OFF.
 ## 4. Sandbox link (required by the submission portal)
 
 The spec requires a hosted environment that runs your ranker on a small sample.
-
-### Option A — Hugging Face Spaces (Docker)
-1. Create a new **Docker** Space.
-2. Push this repo; add a top-level `Dockerfile` that runs the backend and serves
-   a minimal upload form, or reuse `backend/Dockerfile`.
-3. Expose `POST /api/submission/generate` so reviewers can rank a sample.
 
 ### Option B — Google Colab
 A single notebook that:
