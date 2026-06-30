@@ -19,48 +19,13 @@ team_members:
     role: "Team Lead"
   - name: "Omkar Istalkar"
     email: "omkar.istalkar@gmail.com"
-    role: "ML Engineer"
   - name: "Pradnesh Patil"
     email: "patilpradnesh4124@gmail.com"
-    role: "ML Engineer"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/YOUR_USERNAME/talentai"   # TODO: set your real repo URL
-sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/talentai-ranker"  # TODO: set your hosted demo
-
-reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
-# Single command that produces submission.csv from candidates.jsonl. Runs
-# end-to-end on CPU, no network, in well under 5 minutes (feature/rule-based path).
-
-# ============================================================================
-# Compute environment
-# ============================================================================
-compute:
-  platform: "Local machine (laptop)"
-  cpu_cores: 8                          # TODO: confirm your core count
-  ram_gb: 16                            # TODO: confirm your RAM
-  python_version: "3.11"               # TODO: confirm with `python --version`
-  os: "Windows 10/11"
-  uses_gpu_for_inference: false         # ranking is CPU-only
-  has_network_during_ranking: false     # ranking makes NO external calls
-  pre_computation_required: false       # submitted run uses the rule-based path (no offline pre-compute)
-  pre_computation_time_minutes: 0       # embeddings are optional and not required to reproduce submission.csv
-
-# ============================================================================
-# AI tools declaration (transparency only - declared use is NOT penalized)
-# ============================================================================
-ai_tools_used:
-  - "Cursor"
-  - "Claude"
-
-ai_usage_summary: |
-  Used AI coding assistants (Cursor with Claude) for scaffolding, code review and
-  documentation. The ranking methodology, scoring weights, role-fit logic and
-  trap/honeypot heuristics were designed and iterated by the team. No candidate
-  data was sent to any hosted LLM during ranking - the ranking step runs fully
-  offline on CPU with no network access.
+github_repo: "https://github.com/anushdaivat7/TalentAi"   # TODO: set your real repo URL
 
 # ============================================================================
 # Approach summary
@@ -83,12 +48,4 @@ methodology_summary: |
   (score desc, candidate_id asc). An optional offline embeddings pipeline
   (all-MiniLM-L6-v2 + FAISS) is included for semantic blending on capable hardware.
 
-# ============================================================================
-# Declarations
-# ============================================================================
-declarations:
-  read_submission_spec: true
-  code_is_original_work: true
-  no_collusion: true
-  honeypot_check_done: true
-  reproduction_tested: true
+
