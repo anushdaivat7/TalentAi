@@ -37,7 +37,7 @@ candidates.jsonl (100K)  ──►  feature extraction + traps + semantic match
 | Link | URL |
 |------|-----|
 | **GitHub Repo** | [github.com/anushdaivat7/TalentAi](https://github.com/anushdaivat7/TalentAi) |
-| **Sandbox (ranker demo)** | [https://main.d67xcwttv5bl7.amplifyapp.com/] |
+| **Sandbox (ranker demo)** | https://main.d67xcwttv5bl7.amplifyapp.com/ |
 | **Frontend (local)** | [http://localhost:5173](http://localhost:5173) |
 | **Backend API (local)** | [http://127.0.0.1:8000](http://127.0.0.1:8000) |
 | **API Docs (Swagger)** | [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) |
